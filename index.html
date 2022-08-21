@@ -142,6 +142,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-MySQL-0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/21/MySQL-0/">MySQL</a>
+    </h1>
+  
+
+        
+        <a href="/2022/08/21/MySQL-0/" class="archive-article-date">
+  	<time datetime="2022-08-21T20:39:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="What-is-MySql"><a href="#What-is-MySql" class="headerlink" title="What is MySql"></a>What is MySql</h2><p>MySql is one of the data bases. There are two data bases, relational and non relational.<br>MySql is relational data bases. One of the most popular Database Management System.</p>
+<p>Relationsl database is differ than other. It store the data in different files.<br>Allow users to quickly access the unique parts of data. That means MySql having really high speed and efficiency.</p>
+<h3 id="Begin-with-database"><a href="#Begin-with-database" class="headerlink" title="Begin with database"></a>Begin with database</h3><p>To begin, the first command is “USE”.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">USE Your-FILENAME</span><br></pre></td></tr></table></figure>
+<p>This command is simmilar with import, it will import the data from the “Your_FILENAME”<br>Then use command “SELECT” and “FROM” to indicate the data colums you want to select.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT Your-DATA</span><br><span class="line">FROM Your_FILE</span><br></pre></td></tr></table></figure>
+<p>Execute these command you should get the table below</p>
+<img src="/2022/08/21/MySQL-0/TABLE1.jpg" class="">
+
+<p>You may also indicate the colum you want to select.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$SELECT</span> first_name, last_name, points</span><br></pre></td></tr></table></figure>
+<p>By replacing the “*” with the colums, you will only be display the colums you had selected.<br>Adjust the integers in the MySql is simmilar with any other language, follow by the math rules.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Select first_name, last_name, points+10 <span class="comment">#Only the points will have 10 increase;</span></span><br><span class="line">or</span><br><span class="line">Select first_name, last_name, points+10 *10 <span class="comment">#Points will increase by 1000</span></span><br></pre></td></tr></table></figure>
+<p>You may found out the colums name had changed.</p>
+<p>If you want keep the same colum name you may also use Alias.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT first_name, last_name, points+10 AS points-After-10-Increase <span class="comment">#Either one is okay</span></span><br><span class="line">SELECT first_name, last_name, points+10 AS (After Increase) </span><br></pre></td></tr></table></figure>
+<p>“AS” Is the alias. The colum name will change to the first combination of word after the “AS”.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/21/MySQL-0/">View Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-To-Create-a-Post" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -165,7 +244,8 @@
         <h2 id="New-Post"><a href="#New-Post" class="headerlink" title="New Post"></a>New Post</h2><p>To create a post, use command</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;Your Post Name&quot;</span></span><br></pre></td></tr></table></figure>
 <p>This will create a file ending in “Your Post Name” in the source&#x2F;_post<br>You may edit the file by vim command, text, or VsCode.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You may generate the files by use command</span><br><span class="line">```bash</span><br><span class="line">$ hexo g or hexo generate</span><br></pre></td></tr></table></figure>
+<p>You may generate the files by use command</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g or hexo generate</span><br></pre></td></tr></table></figure>
 
 <h3 id="Deploy-to-the-GitHub"><a href="#Deploy-to-the-GitHub" class="headerlink" title="Deploy to the GitHub"></a>Deploy to the GitHub</h3><p>Github providing free server that allows you to deploy your blog website to the remote.</p>
 <p>First. Login to your Github. Create a new reisitory. Your Blog Url is the Repository name.<br>Your Repository must be ending by .github.io</p>
