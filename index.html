@@ -142,6 +142,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-MySQL-Where-Clause" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/22/MySQL-Where-Clause/">MySQL Where Clause</a>
+    </h1>
+  
+
+        
+        <a href="/2022/08/22/MySQL-Where-Clause/" class="archive-article-date">
+  	<time datetime="2022-08-22T17:58:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="WHERE-Clause"><a href="#WHERE-Clause" class="headerlink" title="WHERE Clause"></a>WHERE Clause</h2><p>WHERE Clause is a very helpful filter for filt the informations you had selected.<br>The most simple operations can be apply to the WHERE clause are the ‘AND’, ‘OR’ and ‘NOT’</p>
+<p>The following codes represent the sample how to use these operators</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM customers</span><br><span class="line">(1)WHERE birth_date &gt; <span class="string">&#x27;1990-01-01&#x27;</span> and points &gt; 500</span><br><span class="line">(2)WHERE birth_date &gt; <span class="string">&#x27;1990-01-01&#x27;</span> or points &gt; 500</span><br><span class="line">(3)WHERE NOT (birth_date &gt; <span class="string">&#x27;1990-01-01&#x27;</span> and points &gt; 500)</span><br><span class="line">(4)WHERE birth_date &lt;=<span class="string">&#x27;1990-01-01&#x27;</span> or points &lt;= 500</span><br></pre></td></tr></table></figure>
+<p>Explanation for the code above<br>(1) Return the birth after 1990-01-01 and point is grather than 500<br>(2) Return the birth after 1990-01-01 or point is grather than 500<br>(3) and (4) are similar. You can choose either way to write your code.<br>That means either point is before 1990-01-01 or point is lessthan or equal to 500</p>
+<h3 id="Other-Common-Operators"><a href="#Other-Common-Operators" class="headerlink" title="Other Common Operators"></a>Other Common Operators</h3><h4 id="In-Operator"><a href="#In-Operator" class="headerlink" title="In Operator"></a>In Operator</h4><p>The general use of IN operator is about the same with ‘or’ or ‘&#x3D;’ operator<br>The IN operator can be follow by the parenthesis, and having multiple conditions or one single condition.</p>
+<p>Following code can explain how the IN operator uses in MySQL</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM customers</span><br><span class="line">(1)WHERE state IN <span class="string">&#x27;MA&#x27;</span></span><br><span class="line">(2)WHERE state IN (<span class="string">&#x27;MA&#x27;</span>, <span class="string">&#x27;VA&#x27;</span>, <span class="string">&#x27;GA&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>(1) Return the customers only in state MA<br>(2) Return the customers in statas MA, VA, GA</p>
+<h4 id="BETWEEN-Operator"><a href="#BETWEEN-Operator" class="headerlink" title="BETWEEN Operator"></a>BETWEEN Operator</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WHERE points (BETWEEN 2000 and 3000)</span><br></pre></td></tr></table></figure>
+<p>Return the points x in range 2000 &lt; x &lt; 3000</p>
+<h4 id="LIKE-OPERATOR"><a href="#LIKE-OPERATOR" class="headerlink" title="LIKE OPERATOR"></a>LIKE OPERATOR</h4><p>LIKE operator can filter the letters or numbers in a range<br>The key operations for LIKE commands are % and _<br>For example</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(1)WHERE last_name LIKE <span class="string">&#x27;%B&#x27;</span></span><br><span class="line">(2)WHERE last_name LIKE <span class="string">&#x27;B%&#x27;</span></span><br><span class="line">(3)WHERE last_name LIKE <span class="string">&#x27;%B%&#x27;</span></span><br><span class="line">(4)WHERE last_name LIKE <span class="string">&#x27;____B&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>(1) Return the last name ending with letter ‘b’<br>(2) Return the last name starting with letter ‘b’<br>(3) Return the last name if b exist<br>(4) Since there are 4 _ so it will return the last name ending with b and exactly length of 5</p>
+<h4 id="REGEXP-and-IS-Operator"><a href="#REGEXP-and-IS-Operator" class="headerlink" title="REGEXP and IS Operator"></a>REGEXP and IS Operator</h4><p>REGEXP works like LIKE operator WHERE REGEXP ‘ANY’ is same with LIKE’%ANY%’<br>Stantard operations for REGEXP</p>
+<ul>
+<li>$</li>
+<li>^</li>
+<li>[]<br>Uses of these operators<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(1)WHERE last_name REGEXP <span class="string">&#x27;$any&#x27;</span></span><br><span class="line">(2)WHERE last_name REGEXP <span class="string">&#x27;any$&#x27;</span></span><br><span class="line">(3)WHERE last_name REGEXP <span class="string">&#x27;any$|mac$&#x27;</span></span><br><span class="line">(4)WHERE last_name REGEXP <span class="string">&#x27;^a&#x27;</span></span><br><span class="line">(5)WHERE last_name REGEXP <span class="string">&#x27;e[abc]&#x27;</span></span><br><span class="line">(6)WHERE last_name REGEXP <span class="string">&#x27;$e[a-h]&#x27;</span></span><br></pre></td></tr></table></figure>
+(1)Return the lastname ending with ‘any’<br>(2)Return the lastname start with ‘any’<br>(3)Return the lastname start with ‘any’ or ‘mac’<br>(4)Return the lastname any customers lastname start with ‘a’<br>(5)Return the lastname contain following combo ‘ea’, ‘eb’, ‘ec’<br>(6)Return the lastname contain combo with e with letters a-h combo</li>
+</ul>
+<h4 id="IS-NULL-AND-ORDER-BY-OPERATORS"><a href="#IS-NULL-AND-ORDER-BY-OPERATORS" class="headerlink" title="IS NULL AND ORDER BY OPERATORS"></a>IS NULL AND ORDER BY OPERATORS</h4><p>IS NULL can be simply apply to the any colums, such as address IS NULL<br>Also opposite of that is IS NOT NULL</p>
+<p>ORDER BY can be either sort the list with the number or letters.</p>
+<ul>
+<li>DESC command is descending the order.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ORDER BY firstname // output the a-z sorted list</span><br><span class="line">ORDER BY lastname, firstname //output having primary order of last name <span class="keyword">then</span> first name</span><br><span class="line">ORDER BY order_id DESC, descending order of order_id</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/22/MySQL-Where-Clause/">View Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySQL-0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -172,7 +259,7 @@
 <img src="/2022/08/21/MySQL-0/TABLE1.jpg" class="">
 
 <p>You may also indicate the colum you want to select.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$SELECT</span> first_name, last_name, points</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT first_name, last_name, points</span><br><span class="line"><span class="comment">##Duplicate information can be removed by adding DISTINCT command</span></span><br><span class="line">SELECT DISTINCT ......</span><br></pre></td></tr></table></figure>
 <p>By replacing the “*” with the colums, you will only be display the colums you had selected.<br>Adjust the integers in the MySql is simmilar with any other language, follow by the math rules.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Select first_name, last_name, points+10 <span class="comment">#Only the points will have 10 increase;</span></span><br><span class="line">or</span><br><span class="line">Select first_name, last_name, points+10 *10 <span class="comment">#Points will increase by 1000</span></span><br></pre></td></tr></table></figure>
 <p>You may found out the colums name had changed.</p>

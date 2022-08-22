@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/08/21/MySQL-0/TABLE1.jpg">
 <meta property="article:published_time" content="2022-08-21T20:39:05.000Z">
-<meta property="article:modified_time" content="2022-08-21T20:52:28.351Z">
+<meta property="article:modified_time" content="2022-08-22T01:59:06.693Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/08/21/MySQL-0/TABLE1.jpg">
@@ -176,7 +176,7 @@
 <img src="/2022/08/21/MySQL-0/TABLE1.jpg" class="">
 
 <p>You may also indicate the colum you want to select.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$SELECT</span> first_name, last_name, points</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT first_name, last_name, points</span><br><span class="line"><span class="comment">##Duplicate information can be removed by adding DISTINCT command</span></span><br><span class="line">SELECT DISTINCT ......</span><br></pre></td></tr></table></figure>
 <p>By replacing the “*” with the colums, you will only be display the colums you had selected.<br>Adjust the integers in the MySql is simmilar with any other language, follow by the math rules.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Select first_name, last_name, points+10 <span class="comment">#Only the points will have 10 increase;</span></span><br><span class="line">or</span><br><span class="line">Select first_name, last_name, points+10 *10 <span class="comment">#Points will increase by 1000</span></span><br></pre></td></tr></table></figure>
 <p>You may found out the colums name had changed.</p>
@@ -254,6 +254,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/08/22/MySQL-Where-Clause/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MySQL Where Clause
+        
+      </div>
+    </a>
   
   
     <a href="/2022/08/19/To-Create-a-Post/" id="article-nav-older" class="article-nav-link-wrap">
