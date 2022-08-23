@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>MySQL Where Clause | Hexo</title>
+  <title>Tag: MySQL | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="WHERE ClauseWHERE Clause is a very helpful filter for filt the informations you had selected.The most simple operations can be apply to the WHERE clause are the ‘AND’, ‘OR’ and ‘NOT’ The following cod">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MySQL Where Clause">
-<meta property="og:url" content="http://example.com/2022/08/22/MySQL-Where-Clause/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/tags/MySQL/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="WHERE ClauseWHERE Clause is a very helpful filter for filt the informations you had selected.The most simple operations can be apply to the WHERE clause are the ‘AND’, ‘OR’ and ‘NOT’ The following cod">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-22T17:58:44.000Z">
-<meta property="article:modified_time" content="2022-08-23T17:04:56.168Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -145,59 +140,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MySQL-Where-Clause" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      MySQL Where Clause
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/08/23/MySQL/" class="archive-article-date">
+  	<time datetime="2022-08-23T16:41:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-23</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/08/23/MySQL/">MySQL Join Clause</a>
     </h1>
   
 
-        
-        <a href="/2022/08/22/MySQL-Where-Clause/" class="archive-article-date">
-  	<time datetime="2022-08-22T17:58:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="WHERE-Clause"><a href="#WHERE-Clause" class="headerlink" title="WHERE Clause"></a>WHERE Clause</h2><p>WHERE Clause is a very helpful filter for filt the informations you had selected.<br>The most simple operations can be apply to the WHERE clause are the ‘AND’, ‘OR’ and ‘NOT’</p>
-<p>The following codes represent the sample how to use these operators</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM customers</span><br><span class="line">(1)WHERE birth_date &gt; <span class="string">&#x27;1990-01-01&#x27;</span> and points &gt; 500</span><br><span class="line">(2)WHERE birth_date &gt; <span class="string">&#x27;1990-01-01&#x27;</span> or points &gt; 500</span><br><span class="line">(3)WHERE NOT (birth_date &gt; <span class="string">&#x27;1990-01-01&#x27;</span> and points &gt; 500)</span><br><span class="line">(4)WHERE birth_date &lt;=<span class="string">&#x27;1990-01-01&#x27;</span> or points &lt;= 500</span><br></pre></td></tr></table></figure>
-<p>Explanation for the code above<br>(1) Return the birth after 1990-01-01 and point is grather than 500<br>(2) Return the birth after 1990-01-01 or point is grather than 500<br>(3) and (4) are similar. You can choose either way to write your code.<br>That means either point is before 1990-01-01 or point is lessthan or equal to 500</p>
-<h3 id="Other-Common-Operators"><a href="#Other-Common-Operators" class="headerlink" title="Other Common Operators"></a>Other Common Operators</h3><h4 id="In-Operator"><a href="#In-Operator" class="headerlink" title="In Operator"></a>In Operator</h4><p>The general use of IN operator is about the same with ‘or’ or ‘&#x3D;’ operator<br>The IN operator can be follow by the parenthesis, and having multiple conditions or one single condition.</p>
-<p>Following code can explain how the IN operator uses in MySQL</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM customers</span><br><span class="line">(1)WHERE state IN <span class="string">&#x27;MA&#x27;</span></span><br><span class="line">(2)WHERE state IN (<span class="string">&#x27;MA&#x27;</span>, <span class="string">&#x27;VA&#x27;</span>, <span class="string">&#x27;GA&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>(1) Return the customers only in state MA<br>(2) Return the customers in statas MA, VA, GA</p>
-<h4 id="BETWEEN-Operator"><a href="#BETWEEN-Operator" class="headerlink" title="BETWEEN Operator"></a>BETWEEN Operator</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WHERE points (BETWEEN 2000 and 3000)</span><br></pre></td></tr></table></figure>
-<p>Return the points x in range 2000 &lt; x &lt; 3000</p>
-<h4 id="LIKE-OPERATOR"><a href="#LIKE-OPERATOR" class="headerlink" title="LIKE OPERATOR"></a>LIKE OPERATOR</h4><p>LIKE operator can filter the letters or numbers in a range<br>The key operations for LIKE commands are % and _<br>For example</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(1)WHERE last_name LIKE <span class="string">&#x27;%B&#x27;</span></span><br><span class="line">(2)WHERE last_name LIKE <span class="string">&#x27;B%&#x27;</span></span><br><span class="line">(3)WHERE last_name LIKE <span class="string">&#x27;%B%&#x27;</span></span><br><span class="line">(4)WHERE last_name LIKE <span class="string">&#x27;____B&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>(1) Return the last name ending with letter ‘b’<br>(2) Return the last name starting with letter ‘b’<br>(3) Return the last name if b exist<br>(4) Since there are 4 _ so it will return the last name ending with b and exactly length of 5</p>
-<h4 id="REGEXP-and-IS-Operator"><a href="#REGEXP-and-IS-Operator" class="headerlink" title="REGEXP and IS Operator"></a>REGEXP and IS Operator</h4><p>REGEXP works like LIKE operator WHERE REGEXP ‘ANY’ is same with LIKE’%ANY%’<br>Stantard operations for REGEXP</p>
-<ul>
-<li>$</li>
-<li>^</li>
-<li>[]<br>Uses of these operators<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(1)WHERE last_name REGEXP <span class="string">&#x27;$any&#x27;</span></span><br><span class="line">(2)WHERE last_name REGEXP <span class="string">&#x27;any$&#x27;</span></span><br><span class="line">(3)WHERE last_name REGEXP <span class="string">&#x27;any$|mac$&#x27;</span></span><br><span class="line">(4)WHERE last_name REGEXP <span class="string">&#x27;^a&#x27;</span></span><br><span class="line">(5)WHERE last_name REGEXP <span class="string">&#x27;e[abc]&#x27;</span></span><br><span class="line">(6)WHERE last_name REGEXP <span class="string">&#x27;$e[a-h]&#x27;</span></span><br></pre></td></tr></table></figure>
-(1)Return the lastname ending with ‘any’<br>(2)Return the lastname start with ‘any’<br>(3)Return the lastname start with ‘any’ or ‘mac’<br>(4)Return the lastname any customers lastname start with ‘a’<br>(5)Return the lastname contain following combo ‘ea’, ‘eb’, ‘ec’<br>(6)Return the lastname contain combo with e with letters a-h combo</li>
-</ul>
-<h4 id="IS-NULL-AND-ORDER-BY-OPERATORS"><a href="#IS-NULL-AND-ORDER-BY-OPERATORS" class="headerlink" title="IS NULL AND ORDER BY OPERATORS"></a>IS NULL AND ORDER BY OPERATORS</h4><p>IS NULL can be simply apply to the any colums, such as address IS NULL<br>Also opposite of that is IS NOT NULL</p>
-<p>ORDER BY can be either sort the list with the number or letters.</p>
-<ul>
-<li>DESC command is descending the order.</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ORDER BY firstname // output the a-z sorted list</span><br><span class="line">ORDER BY lastname, firstname //output having primary order of last name <span class="keyword">then</span> first name</span><br><span class="line">ORDER BY order_id DESC, descending order of order_id</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -209,115 +181,95 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/08/22/MySQL-Where-Clause/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2022/08/23/MySQL/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MySQL Join Clause
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/08/21/MySQL-0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MySQL</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/08/22/MySQL-Where-Clause/" class="archive-article-date">
+  	<time datetime="2022-08-22T17:58:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-22</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/08/22/MySQL-Where-Clause/">MySQL Where Clause</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/08/21/MySQL-0/" class="archive-article-date">
+  	<time datetime="2022-08-21T20:39:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-21</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/08/21/MySQL-0/">MySQL</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
-  
+    
 
 
           </div>
@@ -340,9 +292,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -142,6 +142,97 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-MySQL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/23/MySQL/">MySQL Join Clause</a>
+    </h1>
+  
+
+        
+        <a href="/2022/08/23/MySQL/" class="archive-article-date">
+  	<time datetime="2022-08-23T16:41:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="LIMIT-Clause"><a href="#LIMIT-Clause" class="headerlink" title="LIMIT Clause"></a>LIMIT Clause</h2><p>Limit Clause<br>LIMIT 3 will only print only first 3 customers</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LIMIT 6, 3</span><br></pre></td></tr></table></figure>
+<p>6 is offset, tells MySQL to skip the first 6 record and only return 3 after 6.<br>LIMIT Clause always come in the end</p>
+<h2 id="JOINTS"><a href="#JOINTS" class="headerlink" title="JOINTS"></a>JOINTS</h2><p>Two type of join, INNER JOIN and OUTER JOIN.<br>Standard ‘JOIN’ is INNER JOIN, OUTER JOIN usually uses LEFT JOIN or RIGHE JOIN</p>
+<p>Explain how INNER JOIN works</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">USE sql_store;</span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM orders o</span><br><span class="line">JOIN customer c ON o.customer_id = c.customer_id</span><br></pre></td></tr></table></figure>
+<p>That will return the result if the customer_id from orders and customer_id from customers match.<br>Inner Join only return the results match.</p>
+<h3 id="JOIN-Across-data-bases"><a href="#JOIN-Across-data-bases" class="headerlink" title="JOIN Across data bases"></a>JOIN Across data bases</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">USE sql_store;</span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM orders o</span><br><span class="line">JOIN sql_inventory.products p ON o.product_id = p.product_id;</span><br></pre></td></tr></table></figure>
+<p>The orders file and products files are differ from the primary source file.<br>Because we had USE the sql_store, so we do not include the primary source file name for order.<br>But we do have to include for the products since we did not use the inventory file.</p>
+<h3 id="SELF-JOIN"><a href="#SELF-JOIN" class="headerlink" title="SELF JOIN"></a>SELF JOIN</h3><p>Select sql_hr</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT  e.employee_id, e.first_name, e.last_name, m.first_name AS Manager</span><br><span class="line">FROM employees e</span><br><span class="line">JOIN employees m ON e.reports_to = m.employee_id</span><br></pre></td></tr></table></figure>
+<p>This is internal join. We only use one file that the “Report To” Equals to the CEO’s empolyee_id<br>This will not return the CEO because CEO does not have someone report to.</p>
+<h3 id="Multiple-JOIN"><a href="#Multiple-JOIN" class="headerlink" title="Multiple JOIN"></a>Multiple JOIN</h3><p>For the JOINs we can have multiple Joints and return only if those files and condition matches.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">From orders o</span><br><span class="line">JOIN customers c ON o.customer_id = c.customer_id</span><br><span class="line">JOIN order_statuses os ON os.order_status_id = o.status;</span><br></pre></td></tr></table></figure>
+<p>This will return the JOIN condition matches.</p>
+<h3 id="OUTER-JOIN-LEFT-and-RIGHT"><a href="#OUTER-JOIN-LEFT-and-RIGHT" class="headerlink" title="OUTER JOIN (LEFT) and RIGHT"></a>OUTER JOIN (LEFT) and RIGHT</h3><p>LEFT JOIN will return everything on the FROM clause and the result matches the condition<br>RIGHT JOIN will only return the result matches the condition</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">USE sql_store;</span><br><span class="line"></span><br><span class="line">SELECT o.order_date, o.order_id, c.first_name, sh.name AS shipper, os.name AS status</span><br><span class="line"></span><br><span class="line">FROM orders o</span><br><span class="line">JOIN customers c ON o.customer_id = c.customer_id</span><br><span class="line">LEFT JOIN shippers sh ON o.shipper_id = sh.shipper_id</span><br><span class="line">JOIN order_statuses os ON o.status = os.order_status_id</span><br><span class="line">ORDER BY status</span><br></pre></td></tr></table></figure>
+<p>The code above, the first costomers join is a inner join, it will return all orders and customers matches,<br>Second Join is a outer left join. it return all condition but also include the information not matches.<br>And return by the order status.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/23/MySQL/">View Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySQL-Where-Clause" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -195,6 +286,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -274,6 +376,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -616,6 +729,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
